@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Saarang 2025 — SR University</title>
+
+  <!-- Google Fonts + FontAwesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+  <!-- If you don't have a kit, replace icon <i> tags with text or use CDN: -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /> -->
+
+  <style>
+    :root{
+      --accent-1: #ff6ec7;
+      --accent-2: #6a5acd;
+      --accent-3: #00c9ff;
+      --card-1: linear-gradient(135deg,#ff9a9e 0%, #fecfef 100%);
+      --card-2: linear-gradient(135deg,#a18cd1 0%, #fbc2eb 100%);
+      --card-3: linear-gradient(135deg,#84fab0 0%, #8fd3f4 100%);
+      --card-4: linear-gradient(135deg,#f6d365 0%, #fda085 100%);
+      --glass: rgba(255,255,255,0.08);
+      --glass-strong: rgba(0,0,0,0.45);
+      --max-width: 1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      color: #0f172a;
+      background: linear-gradient(180deg,#0f172a 0%, #071024 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 78vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 3rem 1rem;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: url("https://drive.google.com/uc?export=view&id=Zi5Aw6513QI4pdylB") center/cover no-repeat fixed;
+      filter: saturate(0.95) contrast(0.9) brightness(0.6);
+      z-index:0;
+      transform: scale(1.02);
+    }
+    .hero::after{
+      /* soft gradient overlay */
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(135deg, rgba(13, 16, 41, 0.45), rgba(7,10,20,0.65));
+      z-index:1;
+    }
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      margin:0 auto;
+      z-index:2;
+      position:relative;
+    }
+    .hero-inner{
+      display:flex;
+      gap:2rem;
+      align-items:center;
+      justify-content:space-between;
+      color: #fff;
+      flex-wrap:wrap;
+    }
+    .brand{
+      max-width: 54%;
+      min-width:260px;
+    }
+    .brand h1{
+      margin:0;
+      font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+      line-height:1;
+      letter-spacing: -0.02em;
+      font-weight:700;
+      color: #fff;
+      text-shadow: 0 6px 30px rgba(0,0,0,0.6);
+    }
+    .brand p{
+      margin:0.6rem 0 1.2rem;
+      color: rgba(255,255,255,0.92);
+      font-weight:500;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:0.9rem;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:0.6rem;
+      padding:0.9rem 1.3rem;
+      border-radius:999px;
+      font-weight:600;
+      text-decoration:none;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+      border: none;
+      cursor:pointer;
+    }
+    .btn-primary{
+      background: linear-gradient(90deg,var(--accent-1),var(--accent-2));
+      color:white;
+    }
+    .btn-ghost{
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* countdown */
+    .countdown {
+      display:flex;
+      gap:0.7rem;
+      align-items:center;
+      justify-content:flex-start;
+      margin-top:0.6rem;
+      flex-wrap:wrap;
+    }
+    .count-item{
+      background: rgba(255,255,255,0.06);
+      padding:0.6rem 0.8rem;
+      border-radius:12px;
+      min-width:74px;
+      text-align:center;
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.5);
+    }
+    .count-item .num{ font-weight:700; font-size:1.1rem; display:block; }
+    .count-item .lbl{ font-size:0.75rem; opacity:0.85; margin-top:4px; }
+
+    /* EVENTS GRID */
+    .events-section{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:3.2rem 1rem;
+      color: #e6eef8;
+    }
+    .section-head{ max-width:var(--max-width); margin: 0 auto 1.6rem; padding:0 1rem; text-align:center;}
+    .section-head h2{ margin:0; color: #fff; font-size: clamp(1.4rem, 2.4vw, 2rem); }
+    .section-head p{ margin:0.4rem auto 0; color: rgba(255,255,255,0.82); max-width:860px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:1.1rem;
+      max-width:var(--max-width);
+      margin:1.5rem auto 0;
+      padding:0 1rem;
+    }
+    .card{
+      border-radius:14px;
+      padding:1.2rem;
+      color:#071024;
+      min-height:150px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.5);
+      transition: transform .25s ease, box-shadow .25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .card:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(2,6,23,0.6); }
+    .card .top{ display:flex; gap:0.9rem; align-items:center; }
+    .badge{
+      width:56px; height:56px; border-radius:12px;
+      display:grid; place-items:center; font-size:1.25rem; color:#FFF; font-weight:700;
+      box-shadow: 0 8px 22px rgba(2,6,23,0.3);
+    }
+    .card h3{ margin:0; font-size:1.05rem; font-weight:700; color: #071024; }
+    .card p{ margin:0.5rem 0 0; color: rgba(7,16,36,0.9); font-weight:600; font-size:0.95rem; }
+
+    /* different card backgrounds */
+    .c1{ background: var(--card-1); }
+    .c2{ background: var(--card-2); }
+    .c3{ background: var(--card-3); }
+    .c4{ background: var(--card-4); }
+    .c5{ background: linear-gradient(135deg,#f093fb 0%,#f5576c 100%); }
+    .c6{ background: linear-gradient(135deg,#89f7fe 0%,#66a6ff 100%); }
+
+    .card .cta {
+      margin-top:1rem;
+      align-self:flex-start;
+      background: rgba(0,0,0,0.06);
+      padding:0.5rem 0.9rem;
+      border-radius:999px;
+      font-weight:700;
+      color:#071024;
+      text-decoration:none;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    /* CONTACT + FOOTER */
+    .contact{
+      padding:2.5rem 1rem;
+      color: rgba(255,255,255,0.92);
+      text-align:center;
+      background: linear-gradient(180deg, rgba(7,10,20,0.8), rgba(2,6,23,0.9));
+    }
+    .contact .inner{ max-width:700px; margin:0 auto; }
+    .contact a{ color: #ffd166; font-weight:700; text-decoration:none; }
+
+    footer{
+      text-align:center;
+      padding:1.1rem;
+      color: rgba(255,255,255,0.7);
+      background: rgba(0,0,0,0.35);
+    }
+
+    /* responsive */
+    @media(max-width:980px){
+      .grid{ grid-template-columns: repeat(2,1fr); }
+      .brand{ max-width:100%; }
+    }
+    @media(max-width:640px){
+      .grid{ grid-template-columns: 1fr; }
+      .countdown{ justify-content:center; }
+      .brand h1{ font-size:1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="brand">
+        <h1>Saarang 2025</h1>
+        <p>The Cultural Fest of <strong>SR University</strong> — celebrate creativity, tech & culture. <br> 05 October 2025</p>
+
+        <div id="countdown" class="countdown" aria-hidden="false">
+          <div class="count-item"><span class="num" id="cd-days">--</span><span class="lbl">Days</span></div>
+          <div class="count-item"><span class="num" id="cd-hours">--</span><span class="lbl">Hours</span></div>
+          <div class="count-item"><span class="num" id="cd-mins">--</span><span class="lbl">Minutes</span></div>
+          <div class="count-item"><span class="num" id="cd-secs">--</span><span class="lbl">Seconds</span></div>
+        </div>
+
+        <div class="cta-row" style="margin-top:1.2rem;">
+          <a class="btn btn-primary" href="https://example.com/register" target="_blank" rel="noopener">Register Now <i class="fas fa-arrow-right" style="opacity:0.9"></i></a>
+          <a class="btn btn-ghost" href="#events">Explore Events</a>
+        </div>
+      </div>
+
+      <!-- small visual panel on right -->
+      <div style="min-width:260px; max-width:320px;">
+        <div style="background:var(--glass); border-radius:12px; padding:1rem; color:#fff; box-shadow: 0 10px 30px rgba(2,6,23,0.5);">
+          <div style="font-size:0.85rem; opacity:0.9; font-weight:600;">Quick Info</div>
+          <ul style="list-style:none; padding:0; margin:0.6rem 0 0; text-align:left;">
+            <li style="padding:0.35rem 0;"><strong>Venue:</strong> SR University Campus</li>
+            <li style="padding:0.35rem 0;"><strong>Entry:</strong> Student ID / Pass</li>
+            <li style="padding:0.35rem 0;"><strong>Prizes:</strong> ₹5L+ across events</li>
+          </ul>
+          <div style="margin-top:0.9rem;"><a class="btn btn-primary" href="#contact" style="width:100%; justify-content:center;">Contact Organisers</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" class="events-section">
+    <div class="section-head">
+      <h2>Event Highlights</h2>
+      <p>From intense coding battles to electrifying cultural nights — Saarang 2025 has something for everyone. Click a card to learn more and register for that event.</p>
+    </div>
+
+    <div class="grid" role="list">
+      <!-- Card 1 -->
+      <article class="card c1" role="listitem" aria-labelledby="e1">
+        <div class="top">
+          <div class="badge" style="background: rgba(0,0,0,0.15); color:#fff;"><i class="fas fa-laptop-code"></i></div>
+          <div>
+            <h3 id="e1">Hackathon</h3>
+            <p>24-hour coding marathon — teams build solutions & prototypes. Prizes for best idea and best implementation.</p>
+          </div>
+        </div>
+        <a class="cta" href="#">Register for Hackathon</a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card c2" role="listitem" aria-labelledby="e2">
+        <div class="top">
+          <div class="badge" style="background: rgba(0,0,0,0.15); color:#fff;"><i class="fas fa-robot"></i></div>
+          <div>
+            <h3 id="e2">Robo Wars</h3>
+            <p>Battlebots bring power and strategy — design, build & compete in the arena for top honours.</p>
+          </div>
+        </div>
+        <a class="cta" href="#">Register for Robo Wars</a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card c3" role="listitem" aria-labelledby="e3">
+        <div class="top">
+          <div class="badge" style="background: rgba(0,0,0,0.15); color:#fff;"><i class="fas fa-microphone"></i></div>
+          <div>
+            <h3 id="e3">Cultural Night</h3>
+            <p>A dazzling evening of music, dance and performances — open for solo & group acts. Get ready for the spotlight.</p>
+          </div>
+        </div>
+        <a class="cta" href="#">See Cultural Night Details</a>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card c4" role="listitem" aria-labelledby="e4">
+        <div class="top">
+          <div class="badge" style="background: rgba(0,0,0,0.15); color:#071024;"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div>
+            <h3 id="e4">Guest Talks</h3>
+            <p>Industry leaders and creative thinkers share insights on technology, art and entrepreneurship.</p>
+          </div>
+        </div>
+        <a class="cta" href="#">See Speakers & Schedule</a>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="card c5" role="listitem" aria-labelledby="e5">
+        <div class="top">
+          <div class="badge" style="background: rgba(0,0,0,0.15); color:#fff;"><i class="fas fa-rocket"></i></div>
+          <div>
+            <h3 id="e5">Startup Pitch</h3>
+            <p>Pitch your startup idea to a panel of mentors and investors — win mentorship and seed support.</p>
+          </div>
+        </div>
+        <a class="cta" href="#">Register for Startup Pitch</a>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="card c6" role="listitem" aria-labelledby="e6">
+        <div class="top">
+          <div class="badge" style="background: rgba(0,0,0,0.15); color:#fff;"><i class="fas fa-gamepad"></i></div>
+          <div>
+            <h3 id="e6">Fun Events & Games</h3>
+            <p>Treasure hunts, gaming tournaments, dance battles, open-mic & more — everything fun and energetic.</p>
+          </div>
+        </div>
+        <a class="cta" href="#">Explore Fun Events</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="inner">
+      <h2 style="margin-bottom:0.5rem;">Contact & Registration</h2>
+      <p style="margin-top:0.2rem; margin-bottom:0.9rem;">Questions or team registrations? Reach out to the Saarang organizing team.</p>
+      <p style="margin:0.25rem 0;"><strong>Email:</strong> <a href="mailto:fest@sruniversity.edu">fest@sruniversity.edu</a></p>
+      <p style="margin:0.25rem 0;"><strong>Phone:</strong> <a href="tel:+919000012345">+91 90000 12345</a></p>
+      <p style="margin-top:0.9rem; font-size:0.95rem; color: rgba(255,255,255,0.75);">Venue: SR University Campus • 05 October 2025</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Saarang, SR University. All rights reserved.
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // -------- COUNTDOWN --------
+    (function(){
+      // target: 05 Oct 2025 09:00 IST
+      const target = new Date("2025-10-05T09:00:00+05:30").getTime();
+      const daysEl = document.getElementById('cd-days');
+      const hoursEl = document.getElementById('cd-hours');
+      const minsEl = document.getElementById('cd-mins');
+      const secsEl = document.getElementById('cd-secs');
+
+      function update(){
+        const now = Date.now();
+        const d = target - now;
+        if(d <= 0){
+          daysEl.textContent = '00';
+          hoursEl.textContent = '00';
+          minsEl.textContent = '00';
+          secsEl.textContent = '00';
+          // optional: show started message
+          // document.querySelector('.hero p').textContent = 'The Fest has started — See you on campus!';
+          return;
+        }
+        const days = Math.floor(d / (1000*60*60*24));
+        const hours = Math.floor((d / (1000*60*60)) % 24);
+        const mins = Math.floor((d / (1000*60)) % 60);
+        const secs = Math.floor((d / 1000) % 60);
+
+        daysEl.textContent = String(days).padStart(2,'0');
+        hoursEl.textContent = String(hours).padStart(2,'0');
+        minsEl.textContent = String(mins).padStart(2,'0');
+        secsEl.textContent = String(secs).padStart(2,'0');
+      }
+
+      update();
+      setInterval(update, 1000);
+    })();
+
+    // -------- Placeholder interactions for CTAs (replace with real links) --------
+    document.querySelectorAll('.cta').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const text = btn.textContent.trim();
+        alert(text + ' — Registration/Details page coming soon. Replace CTA href with your actual link.');
+      });
+    });
+
+    // If FontAwesome kit script wasn't configured, replace icons with emoji fallback
+    (function fallbackIcons(){
+      try{
+        const faTest = window.FontAwesome;
+        if(!faTest){
+          // replace <i class="fas ..."> with emoji fallbacks (very small fallback)
+          document.querySelectorAll('i.fas.fa-laptop-code').forEach(n => n.textContent='💻');
+          document.querySelectorAll('i.fas.fa-robot').forEach(n => n.textContent='🤖');
+          document.querySelectorAll('i.fas.fa-microphone').forEach(n => n.textContent='🎤');
+          document.querySelectorAll('i.fas.fa-chalkboard-teacher').forEach(n => n.textContent='📢');
+          document.querySelectorAll('i.fas.fa-rocket').forEach(n => n.textContent='🚀');
+          document.querySelectorAll('i.fas.fa-gamepad').forEach(n => n.textContent='🎮');
+          document.querySelectorAll('i.fas.fa-arrow-right').forEach(n => n.textContent='→');
+        }
+      }catch(e){}
+    })();
+  </script>
+</body>
+</html>
